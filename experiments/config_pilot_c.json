@@ -1,0 +1,22 @@
+{
+  "experiment_name": "pilot_c_convergence",
+  "output_file": "results/pilot_c_convergence.csv",
+  "random_seed_base": 3000,
+  "parameters": {
+    "n_values": [100, 200, 500],
+    "m_values": [5, 10],
+    "distributions": ["uniform", "job_correlated"],
+    "replicas": 5 
+  },
+  "algorithms": {
+    "iterated_greedy": [
+        {"time_limit": 0.1, "d": 6, "T_lambda": 0.1},
+        {"time_limit": 0.5, "d": 6, "T_lambda": 0.1},
+        {"time_limit": 1.0, "d": 6, "T_lambda": 0.1},
+        {"time_limit": 5.0, "d": 6, "T_lambda": 0.1},
+        {"time_limit": 10.0, "d": 6, "T_lambda": 0.1},
+        {"time_limit": 30.0, "d": 6, "T_lambda": 0.1},
+        {"time_limit": 60.0, "d": 6, "T_lambda": 0.1}
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "experiment_name": "workhorse_final",
+  "output_file": "results/workhorse_results.csv",
+  "random_seed_base": 5000,
+  "measure_wall_clock": false,
+  "parameters": {
+    "n_values": [8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 30, 50, 100, 200, 500],
+    "m_values": [2, 4, 5, 10, 20],
+    "distributions": ["uniform", "job_correlated"],
+    "replicas": 5
+  },
+  "algorithms": {
+    "brute_force": false,
+    "branch_and_bound": {
+      "time_limit": 60
+    },
+    "iterated_greedy": {
+      "time_limit": 30,
+      "d": 4,
+      "T_lambda": 0.1
+    }
+  }
+}

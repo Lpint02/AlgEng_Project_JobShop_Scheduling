@@ -1,0 +1,23 @@
+{
+  "experiment_name": "validation_run_v1",
+  "output_file": "../results/validation_results.csv",
+  "random_seed_base": 42,
+  "parameters": {
+    "n_values": [8, 10, 12],
+    "m_values": [2, 4],
+    "distributions": ["uniform", "job_correlated"],
+    "replicas": 5
+  },
+  "algorithms": {
+    "brute_force": true,
+    "branch_and_bound": {
+      "time_limit": 60
+    },
+    "iterated_greedy": {
+      "time_limit": 1,
+      "d": 6,
+      "T_lambda": 0.1
+    }
+  },
+  "measure_wall_clock": true
+}

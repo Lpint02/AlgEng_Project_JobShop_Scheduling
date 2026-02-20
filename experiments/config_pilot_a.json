@@ -1,0 +1,18 @@
+{
+  "experiment_name": "pilot_a_the_wall",
+  "output_file": "../results/pilot_wall_results.csv",
+  "random_seed_base": 2024,
+  "measure_wall_clock": true,
+  "parameters": {
+    "n_values": [8, 10, 12, 14, 16, 18, 20, 22, 24, 26],
+    "m_values": [2, 4],
+    "distributions": ["uniform", "job_correlated"],
+    "replicas": 5
+  },
+  "algorithms": {
+    "brute_force": false,
+    "branch_and_bound": {
+      "time_limit": 60
+    }
+  }
+}
