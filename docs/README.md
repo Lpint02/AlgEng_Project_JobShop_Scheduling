@@ -1,9 +1,8 @@
 # Progetto di Scheduling - Algorithm Engineering 
 
-**Autore**: [Il tuo nome]  
+**Autore**: Leonardo Pinterpe
 **Corso**: Algorithm Engineering  
-**Anno Accademico**: 2025/2026  
-**Università**: [Nome Università]
+**Anno Accademico**: 2025/2026   
 
 ## 📋 Descrizione
 
@@ -219,4 +218,3 @@ Progetto sviluppato per scopi didattici.
 Citazione algoritmi di riferimento disponibile nei commenti del codice.
 
 ---
-> **Nota**: Questo README è ottimizzato per la valutazione accademica e garantisce la massima riproducibilità dei risultati experimentali.
