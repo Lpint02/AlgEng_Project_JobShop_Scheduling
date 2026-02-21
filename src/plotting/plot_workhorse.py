@@ -2,8 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from path_utils import get_latest_results_file, get_results_paths
 
-def plot_all(results_path="../../results/workhorse_results.csv", output_dir="../../plots"):
+def plot(results_path=None, output_dir=None):
     """
     Genera i 4 grafici principali per l'analisi della campagna sperimentale workhorse.
     """

@@ -2,8 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from path_utils import get_latest_results_file, get_results_paths
 
-def plot(results_path="../../results/validation_results.csv", output_dir="../../plots"):
+def plot(results_path=None, output_dir=None):
     print("[INFO] Generazione Plot Validazione (Bar Chart Logaritmico)...")
     
     if not os.path.exists(results_path):

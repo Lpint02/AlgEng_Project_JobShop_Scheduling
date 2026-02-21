@@ -1,0 +1,16 @@
+# Requirements per Progetto di Scheduling - Algorithm Engineering
+# Solo dipendenze di terze parti essenziali
+# Aggiornato: 2026-02-21
+
+# Data manipulation e analisi
+pandas>=1.5.0
+
+# Plotting e visualizzazione
+matplotlib>=3.6.0
+seaborn>=0.12.0
+numpy>=1.24.0
+
+# Note: 
+# - Python standard library (os, time, csv, json, random, etc.) non richiede installazione
+# - Evitato pip freeze per mantenere requirements minimali
+# - Versioni specificate per riproducibilità mantenendo compatibilità

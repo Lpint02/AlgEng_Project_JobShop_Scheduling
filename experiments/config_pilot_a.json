@@ -1,6 +1,6 @@
 {
   "experiment_name": "pilot_a_the_wall",
-  "output_file": "../results/pilot_wall_results.csv",
+  "output_file": "results/generated/csv/pilot_wall_results.csv",
   "random_seed_base": 2024,
   "measure_wall_clock": true,
   "parameters": {

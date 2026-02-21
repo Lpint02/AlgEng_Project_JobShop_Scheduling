@@ -3,8 +3,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from path_utils import get_latest_results_file, get_results_paths
 
-def plot(results_path="../../results/pilot_c_convergence.csv", output_dir="../../plots"):
+def plot(results_path=None, output_dir=None):
     print("[INFO] Generazione Plot Pilot C (Convergence: Gap vs Time)...")
     
     if not os.path.exists(results_path):

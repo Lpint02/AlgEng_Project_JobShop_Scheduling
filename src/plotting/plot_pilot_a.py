@@ -2,13 +2,27 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from path_utils import get_latest_results_file, get_results_paths
 
-def plot(results_path="../../results/pilot_wall_results.csv", output_dir="../../plots"):
+def plot(results_path=None, output_dir=None):
     print("[INFO] Generazione Plot Pilot A (The Wall - BnB Timeout)...")
     
-    if not os.path.exists(results_path):
-        print(f"[WARNING] File {results_path} non trovato.")
+    # Usa i nuovi path utilities per gestire file e directory
+    if results_path is None:
+        results_path = get_latest_results_file("pilot_wall")
+    
+    if results_path is None:
+        print(f"[WARNING] Nessun file di risultati trovato per pilot_wall")
         return
+    
+    if output_dir is None:
+        paths = get_results_paths("pilot_a", create_dirs=True)
+        output_dir = paths['plots_dir']
+    
+    print(f"[INFO] Usando file: {results_path}")
+    print(f"[INFO] Salvando in: {output_dir}")
 
     df = pd.read_csv(results_path)
     
@@ -76,12 +90,21 @@ def plot(results_path="../../results/pilot_wall_results.csv", output_dir="../../
     plt.legend(fontsize=7, loc='upper left', framealpha=0.9)
     plt.grid(True, alpha=0.3)
     
-    # Salvataggio PNG e PDF
+    # Salvataggio PNG e PDF con timestamp
+    import datetime
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    
     os.makedirs(output_dir, exist_ok=True)
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "pilot_a_the_wall.png"), dpi=300, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, "pilot_a_the_wall.pdf"), bbox_inches='tight')
-    print("[SUCCESS] Salvato: pilot_a_the_wall.png/.pdf")
+    
+    png_file = os.path.join(output_dir, f"pilot_a_the_wall_{timestamp}.png")
+    pdf_file = os.path.join(output_dir, f"pilot_a_the_wall_{timestamp}.pdf")
+    
+    plt.savefig(png_file, dpi=300, bbox_inches='tight')
+    plt.savefig(pdf_file, bbox_inches='tight')
+    
+    print(f"[SUCCESS] Salvato: {os.path.basename(png_file)}")
+    print(f"[SUCCESS] Salvato: {os.path.basename(pdf_file)}")
     plt.close()
 
 if __name__ == "__main__":

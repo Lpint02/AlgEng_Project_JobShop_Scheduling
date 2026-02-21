@@ -1,6 +1,6 @@
 {
   "experiment_name": "pilot_c_convergence",
-  "output_file": "results/pilot_c_convergence.csv",
+  "output_file": "results/generated/csv/pilot_c_convergence.csv",
   "random_seed_base": 3000,
   "parameters": {
     "n_values": [100, 200, 500],

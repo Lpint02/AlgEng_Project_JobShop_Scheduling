@@ -1,6 +1,6 @@
 {
   "experiment_name": "workhorse_final",
-  "output_file": "results/workhorse_results.csv",
+  "output_file": "results/generated/csv/workhorse_results.csv",
   "random_seed_base": 5000,
   "measure_wall_clock": false,
   "parameters": {

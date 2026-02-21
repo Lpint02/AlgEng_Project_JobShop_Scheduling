@@ -132,14 +132,23 @@ def run_experiment(config_path):
                     "Time": elapsed, "Obj": obj, "Status": "OPTIMAL", "Gap": 0.0, "Nodes": nodes
                 })
 
-            # B. BRANCH & BOUND (Solo N<=20: dominio esatto)
-            # Per N>20 il B&B va in timeout sistematico: lo saltiamo per non sprecare CPU.
+            # B. BRANCH & BOUND 
+            # ATTENZIONE: Nel Pilot A dobbiamo scoprire dove sta il "muro" → eseguiamo sempre!
+            # Negli altri esperimenti (workhorse) sappiamo già che N>20 va in timeout → skip.
             bnb_best_obj = None  # Usato dall'IG per calcolare l'Optimality Gap (N<=20)
             if 'branch_and_bound' in algo_conf:
                 bb_opts = algo_conf['branch_and_bound']
-                if meta['n'] > 20:
+                
+                # Check se siamo nel Pilot A (deve scoprire il muro) o in altri esperimenti
+                experiment_name = config.get('experiment_name', '')
+                is_pilot_wall = 'pilot_a' in experiment_name.lower() or 'wall' in experiment_name.lower()
+                
+                if meta['n'] > 20 and not is_pilot_wall:
                     print(f"  -> BnB skipped (N={meta['n']} > 20, heuristic domain)")
                 else:
+                    if meta['n'] > 20 and is_pilot_wall:
+                        print(f"  -> BnB executing (N={meta['n']}) - PILOT A: discovering the wall")
+                    
                     t_lim = bb_opts.get('time_limit', 60)
                     bnb = BranchAndBound(inst, time_limit=t_lim)
 

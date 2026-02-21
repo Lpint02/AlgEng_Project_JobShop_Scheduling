@@ -1,2 +1,34 @@
+# Python Environment
 venv/
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Results Structure for Academic Reproducibility
+# Generated files (exclude from git - these are reproducible)
+results/generated/
+*.log
+
+# Keep reference results (original results for professor)
+!results/reference/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks (if added later)
+.ipynb_checkpoints/
+
+# Backup files
+*.bak
+*.orig
