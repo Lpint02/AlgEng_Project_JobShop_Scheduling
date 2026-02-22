@@ -46,7 +46,7 @@ Scheduling_Exam_Project/
 ### 1. Clone Repository e Setup Ambiente
 
 ```bash
-# Clona la repository (sostituisci con l'URL effettivo)
+# Clona la repository 
 git clone https://github.com/Lpint02/Scheduling_Exam_Project.git
 
 # Entra nella directory del progetto
