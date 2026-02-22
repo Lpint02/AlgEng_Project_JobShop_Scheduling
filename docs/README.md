@@ -86,7 +86,7 @@ pip install -r requirements.txt
 # Controlla che tutto sia configurato correttamente
 python run_experiments.py --check-env
 
-# 🔍 VERIFICA AGGIUNTIVA: Installazione packages nell'ambiente virtuale
+# VERIFICA AGGIUNTIVA: Installazione packages nell'ambiente virtuale
 pip show pandas
 # Location dovrebbe essere: ...\Scheduling_Exam_Project\.venv\Lib\site-packages
 
