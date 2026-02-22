@@ -1,5 +1,7 @@
 # Progetto di Scheduling - Algorithm Engineering 
 
+[![Python](https://img.shields.io/badge/Python-3.14.0-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+
 **Autore**: [Il tuo nome]  
 **Corso**: Algorithm Engineering  
 **Anno Accademico**: 2025/2026  
@@ -35,19 +37,29 @@ Scheduling_Exam_Project/
 
 ## 🚀 Quick Start
 
-### 1. Setup Ambiente
+### Prerequisiti
+- **Git**: Installato e configurato
+- **Python**: Versione 3.8 o superiore
+- **Terminal**: PowerShell (Windows) o Bash (Linux/Mac)
+
+### 1. Clone Repository e Setup Ambiente
 
 ```bash
-# Clone/download del progetto
+# Clona la repository (sostituisci con l'URL effettivo)
+git clone https://github.com/Lpint02/Scheduling_Exam_Project.git
+
+# Entra nella directory del progetto
 cd Scheduling_Exam_Project
 
 # Crea ambiente virtuale Python
-python -m venv venv
+python -m venv .venv
 
-# Attiva ambiente (Windows)
-venv\\Scripts\\activate
+# Attiva ambiente (Windows PowerShell)
+.\.venv\Scripts\Activate.ps1
+# Attiva ambiente (Windows Command Prompt)
+.venv\Scripts\activate
 # Attiva ambiente (Linux/Mac) 
-source venv/bin/activate
+source .venv/bin/activate
 
 # Installa dipendenze
 pip install -r requirements.txt
@@ -63,10 +75,10 @@ python run_experiments.py --check-env
 ### 3. Esecuzione Esperimenti
 
 ```bash
-# Esegui tutti gli esperimenti + genera grafici
+# Esegui tutti gli esperimenti + genera grafici (può metterci 6 ore)
 python run_experiments.py --all
 
-# Solo esperimenti pilot (più veloce)
+# Solo esperimenti pilot (più veloce CONSIGLIATO)
 python run_experiments.py --pilot
 
 # Esperimento singolo
@@ -144,11 +156,6 @@ File di configurazione in `experiments/` permettono customizzazione:
 }
 ```
 
-### Aggiunta Nuovi Plot
-1. Crea `src/plotting/plot_[nome].py` seguendo il template esistente
-2. Importa i moduli necessari da `path_utils`
-3. Aggiungi alla lista in `run_experiments.py`
-
 ## 🏛️ Riproducibilità Accademica
 
 ### Design Principles
@@ -219,4 +226,3 @@ Progetto sviluppato per scopi didattici.
 Citazione algoritmi di riferimento disponibile nei commenti del codice.
 
 ---
-> **Nota**: Questo README è ottimizzato per la valutazione accademica e garantisce la massima riproducibilità dei risultati experimentali.
