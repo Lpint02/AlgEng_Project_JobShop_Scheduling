@@ -3,7 +3,9 @@
 [![Python](https://img.shields.io/badge/Python-3.14.0-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 
 **Autore**: Leonardo Pinterpe
+
 **Corso**: Algorithm Engineering  
+
 **Anno Accademico**: 2025/2026   
 
 ## 📋 Descrizione
@@ -44,7 +46,7 @@ Scheduling_Exam_Project/
 ### 1. Clone Repository e Setup Ambiente
 
 ```bash
-# Clona la repository (sostituisci con l'URL effettivo)
+# Clona la repository 
 git clone https://github.com/Lpint02/Scheduling_Exam_Project.git
 
 # Entra nella directory del progetto
