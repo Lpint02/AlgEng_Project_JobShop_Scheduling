@@ -57,12 +57,14 @@ python -m venv .venv
 
 # Attiva ambiente (Windows PowerShell)
 .\.venv\Scripts\Activate.ps1
+
 # Attiva ambiente (Windows Command Prompt)
 .venv\Scripts\activate
+
 # Attiva ambiente (Linux/Mac) 
 source .venv/bin/activate
 
-# ⚠️ VERIFICA ATTIVAZIONE: Il prompt dovrebbe mostrare (.venv) all'inizio
+# VERIFICA ATTIVAZIONE: Il prompt dovrebbe mostrare (.venv) all'inizio
 # Se non vedi (.venv) nel prompt, prova:
 # PowerShell con policy di esecuzione:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser

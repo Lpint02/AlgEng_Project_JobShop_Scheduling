@@ -1,11 +1,21 @@
 # Python Environment
+.venv/
 venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python Cache Files (be more specific)
 __pycache__/
+*.py[cod]
+*$py.class
 *.pyc
 *.pyo
 *.pyd
 .Python
 pip-log.txt
+pip-delete-this-directory.txt
 
 # IDE Files
 .vscode/
