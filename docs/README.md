@@ -3,7 +3,9 @@
 [![Python](https://img.shields.io/badge/Python-3.14.0-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 
 **Autore**: Leonardo Pinterpe
+
 **Corso**: Algorithm Engineering  
+
 **Anno Accademico**: 2025/2026   
 
 ## 📋 Descrizione
