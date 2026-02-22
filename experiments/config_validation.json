@@ -1,6 +1,6 @@
 {
   "experiment_name": "validation_run_v1",
-  "output_file": "../results/generated/csv/validation_results.csv",
+  "output_file": "results/generated/csv/validation_results.csv",
   "random_seed_base": 42,
   "parameters": {
     "n_values": [8, 10, 12],
