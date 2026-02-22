@@ -146,8 +146,6 @@ def run_experiment(config_path):
                 if meta['n'] > 20 and not is_pilot_wall:
                     print(f"  -> BnB skipped (N={meta['n']} > 20, heuristic domain)")
                 else:
-                    if meta['n'] > 20 and is_pilot_wall:
-                        print(f"  -> BnB executing (N={meta['n']}) - PILOT A: discovering the wall")
                     
                     t_lim = bb_opts.get('time_limit', 60)
                     bnb = BranchAndBound(inst, time_limit=t_lim)

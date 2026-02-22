@@ -132,9 +132,8 @@ def plot_2_lower_bound_error(df, output_dir):
     
     # Salvataggio PNG e PDF
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "workhorse_2_lower_bound_error.png"), dpi=300, bbox_inches='tight')
     plt.savefig(os.path.join(output_dir, "workhorse_2_lower_bound_error.pdf"), bbox_inches='tight')
-    print("[SUCCESS] Salvato: workhorse_2_lower_bound_error.png/.pdf")
+    print("[SUCCESS] Salvato: workhorse_2_lower_bound_error.pdf")
     plt.close()
 
 
@@ -181,9 +180,8 @@ def plot_3_rpd_by_distribution(df, output_dir):
     
     # Salvataggio PNG e PDF
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "workhorse_3_rpd_distribution.png"), dpi=300, bbox_inches='tight')
     plt.savefig(os.path.join(output_dir, "workhorse_3_rpd_distribution.pdf"), bbox_inches='tight')
-    print("[SUCCESS] Salvato: workhorse_3_rpd_distribution.png/.pdf")
+    print("[SUCCESS] Salvato: workhorse_3_rpd_distribution.pdf")
     plt.close()
 
 
@@ -256,8 +254,7 @@ def plot_4_rpd_vs_machines(df, output_dir):
     
     # Salvataggio PNG e PDF
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "workhorse_4_rpd_vs_machines.png"), dpi=300, bbox_inches='tight')
     plt.savefig(os.path.join(output_dir, "workhorse_4_rpd_vs_machines.pdf"), bbox_inches='tight')
-    print("[SUCCESS] Salvato: workhorse_4_rpd_vs_machines.png/.pdf")
+    print("[SUCCESS] Salvato: workhorse_4_rpd_vs_machines.pdf")
     plt.close()
 

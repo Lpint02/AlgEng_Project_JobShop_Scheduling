@@ -101,9 +101,8 @@ def plot(results_path=None, output_dir=None):
     # Salvataggio PNG e PDF
     os.makedirs(output_dir, exist_ok=True)
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "validation_micro_benchmarks.png"), dpi=300, bbox_inches='tight')
     plt.savefig(os.path.join(output_dir, "validation_micro_benchmarks.pdf"), bbox_inches='tight')
-    print("[SUCCESS] Salvato: validation_micro_benchmarks.png/.pdf")
+    print("[SUCCESS] Salvato: validation_micro_benchmarks.pdf")
     plt.close()
 
 if __name__ == "__main__":

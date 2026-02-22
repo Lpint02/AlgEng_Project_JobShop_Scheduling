@@ -108,9 +108,8 @@ def plot(results_path=None, output_dir=None):
     # Salvataggio PNG e PDF
     os.makedirs(output_dir, exist_ok=True)
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "pilot_c_convergence.png"), dpi=300, bbox_inches='tight')
     plt.savefig(os.path.join(output_dir, "pilot_c_convergence.pdf"), bbox_inches='tight')
-    print("[SUCCESS] Salvato: pilot_c_convergence.png/.pdf")
+    print("[SUCCESS] Salvato: pilot_c_convergence.pdf")
     plt.close()
 
 if __name__ == "__main__":

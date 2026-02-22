@@ -222,7 +222,7 @@ Output:
         print(f"⏱️  Tempo totale: {total_elapsed:.1f}s")
     
     # Genera plot
-    if args.all or args.generate_plots:
+    if args.all or args.pilot or args.generate_plots:
         plot_experiments = experiments_to_run if experiments_to_run else list(PLOT_MODULES.keys())
         generate_plots(plot_experiments)
     
@@ -230,7 +230,7 @@ Output:
     print_header("🎉 COMPLETATO")
     print("📁 Controlla i risultati in:")
     print("   • results/generated/csv/     : File CSV risultati")
-    print("   • results/generated/plots/   : Grafici PNG/PDF")
+    print("   • results/generated/plots/   : Grafici PDF")
     print("   • results/reference/         : Risultati originali (sola lettura)")
 
 if __name__ == "__main__":

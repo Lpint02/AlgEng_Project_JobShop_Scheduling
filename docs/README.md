@@ -71,8 +71,10 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 .\.venv\Scripts\Activate.ps1
 
 # Verifica che pip punti all'ambiente virtuale
-where pip
-# Dovrebbe restituire: ...\Scheduling_Exam_Project\.venv\Scripts\pip.exe
+Get-Command pip
+# OPPURE semplicemente:
+pip --version
+# Dovrebbe mostrare path con .venv: ...\Scheduling_Exam_Project\.venv\...
 
 # Installa dipendenze
 pip install -r requirements.txt
@@ -90,6 +92,9 @@ pip show pandas
 
 pip list
 # Dovresti vedere solo: pandas, matplotlib, seaborn, numpy + dipendenze
+
+pip --version
+# Dovrebbe mostrare path con .venv
 
 ```
 
@@ -113,14 +118,13 @@ python run_experiments.py --generate-plots
 
 ### Struttura Output
 - **CSV Results**: `results/generated/csv/` - File con timestamp per evitare sovrascritture
-- **Grafici**: `results/generated/plots/` - PNG (alta risoluzione) + PDF (pubblicazione)
+- **Grafici**: `results/generated/plots/` - PDF ottimizzati per pubblicazione
 - **Riferimento**: `results/reference/` - Risultati originali immutabili
 
 ### Formato File Generati
 ```
-pilot_a_results_20260221_143022.csv    # Timestamp: YYYYMMDD_HHMMSS
-pilot_a_the_wall_20260221_143025.png
-pilot_a_the_wall_20260221_143025.pdf
+pilot_a_results_20260221_143022.csv    # CSV: Timestamp YYYYMMDD_HHMMSS
+pilot_a_the_wall.pdf                   # PDF: Nome fisso (sovrascrive)
 ```
 
 ## 🔬 Esperimenti Implementati
@@ -216,8 +220,9 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 .\.venv\Scripts\Activate.ps1
 
 # 4. Verifica che pip punti all'ambiente virtuale:
-where pip
-# Output atteso: ...\Scheduling_Exam_Project\.venv\Scripts\pip.exe
+Get-Command pip
+# OPPURE: pip --version
+# Output atteso: path contenente .venv\...
 
 # 5. Se pip ancora globale, usa path assoluto:
 .\.venv\Scripts\pip.exe install -r requirements.txt

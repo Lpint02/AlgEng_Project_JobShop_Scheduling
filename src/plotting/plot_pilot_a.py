@@ -90,20 +90,14 @@ def plot(results_path=None, output_dir=None):
     plt.legend(fontsize=7, loc='upper left', framealpha=0.9)
     plt.grid(True, alpha=0.3)
     
-    # Salvataggio PNG e PDF con timestamp
-    import datetime
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    
+    # Salvataggio solo PDF (sovrascrive)
     os.makedirs(output_dir, exist_ok=True)
     plt.tight_layout()
     
-    png_file = os.path.join(output_dir, f"pilot_a_the_wall_{timestamp}.png")
-    pdf_file = os.path.join(output_dir, f"pilot_a_the_wall_{timestamp}.pdf")
+    pdf_file = os.path.join(output_dir, "pilot_a_the_wall.pdf")
     
-    plt.savefig(png_file, dpi=300, bbox_inches='tight')
     plt.savefig(pdf_file, bbox_inches='tight')
     
-    print(f"[SUCCESS] Salvato: {os.path.basename(png_file)}")
     print(f"[SUCCESS] Salvato: {os.path.basename(pdf_file)}")
     plt.close()
 

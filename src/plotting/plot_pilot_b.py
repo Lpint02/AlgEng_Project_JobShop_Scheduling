@@ -62,9 +62,8 @@ def plot(results_path=None, output_dir=None):
     # Salvataggio PNG e PDF
     os.makedirs(output_dir, exist_ok=True)
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "pilot_b_tuning.png"), dpi=300, bbox_inches='tight')
     plt.savefig(os.path.join(output_dir, "pilot_b_tuning.pdf"), bbox_inches='tight')
-    print("[SUCCESS] Salvato: pilot_b_tuning.png/.pdf")
+    print("[SUCCESS] Salvato: pilot_b_tuning.pdf")
     plt.close()
 
 def plot_interaction(results_path="../../results/pilot_b_tuning.csv", output_dir="../../plots"):
@@ -151,13 +150,12 @@ def plot_interaction(results_path="../../results/pilot_b_tuning.csv", output_dir
     # Salvataggio PNG e PDF
     os.makedirs(output_dir, exist_ok=True)
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "pilot_b_interaction.png"), dpi=300, bbox_inches='tight')
     plt.savefig(os.path.join(output_dir, "pilot_b_interaction.pdf"), bbox_inches='tight')
-    print("[SUCCESS] Salvato: pilot_b_interaction.png/.pdf")
+    print("[SUCCESS] Salvato: pilot_b_interaction.pdf")
     plt.close()
 
 if __name__ == "__main__":
     plot()
     plot_interaction()
-    print("✅ Salvato: pilot_b_tuning.png")
-    print("✅ Salvato: pilot_b_interaction.png")
+    print("✅ Salvato: pilot_b_tuning.pdf")
+    print("✅ Salvato: pilot_b_interaction.pdf")
