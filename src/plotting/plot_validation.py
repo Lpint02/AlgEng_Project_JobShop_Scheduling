@@ -9,6 +9,18 @@ from path_utils import get_latest_results_file, get_results_paths
 def plot(results_path=None, output_dir=None):
     print("[INFO] Generazione Plot Validazione (Bar Chart Logaritmico)...")
     
+    # Usa il file di reference specifico se non specificato
+    if results_path is None:
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        results_path = os.path.join(base_dir, "results", "reference", "validation_results.csv")
+    
+    if output_dir is None:
+        paths = get_results_paths("validation", create_dirs=True)
+        output_dir = paths['plots_dir']
+    
+    print(f"[INFO] Usando file: {results_path}")
+    print(f"[INFO] Salvando in: {output_dir}")
+    
     if not os.path.exists(results_path):
         print(f"[WARNING] File {results_path} non trovato.")
         return

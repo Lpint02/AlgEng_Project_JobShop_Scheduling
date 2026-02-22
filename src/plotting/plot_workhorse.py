@@ -12,6 +12,18 @@ def plot(results_path=None, output_dir=None):
     """
     print("[INFO] Generazione Plot Workhorse (Campagna Sperimentale Finale)...")
     
+    # Usa il file di reference specifico se non specificato
+    if results_path is None:
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        results_path = os.path.join(base_dir, "results", "reference", "workhorse_results.csv")
+    
+    if output_dir is None:
+        paths = get_results_paths("workhorse", create_dirs=True)
+        output_dir = paths['plots_dir']
+    
+    print(f"[INFO] Usando file: {results_path}")
+    print(f"[INFO] Salvando in: {output_dir}")
+    
     if not os.path.exists(results_path):
         print(f"[WARNING] File {results_path} non trovato.")
         return
@@ -249,6 +261,3 @@ def plot_4_rpd_vs_machines(df, output_dir):
     print("[SUCCESS] Salvato: workhorse_4_rpd_vs_machines.png/.pdf")
     plt.close()
 
-
-if __name__ == "__main__":
-    plot_all()

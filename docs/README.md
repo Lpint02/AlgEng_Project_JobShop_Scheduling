@@ -60,6 +60,16 @@ python -m venv .venv
 # Attiva ambiente (Linux/Mac) 
 source .venv/bin/activate
 
+# ⚠️ VERIFICA ATTIVAZIONE: Il prompt dovrebbe mostrare (.venv) all'inizio
+# Se non vedi (.venv) nel prompt, prova:
+# PowerShell con policy di esecuzione:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+.\.venv\Scripts\Activate.ps1
+
+# Verifica che pip punti all'ambiente virtuale
+where pip
+# Dovrebbe restituire: ...\Scheduling_Exam_Project\.venv\Scripts\pip.exe
+
 # Installa dipendenze
 pip install -r requirements.txt
 ```
@@ -69,6 +79,14 @@ pip install -r requirements.txt
 ```bash
 # Controlla che tutto sia configurato correttamente
 python run_experiments.py --check-env
+
+# 🔍 VERIFICA AGGIUNTIVA: Installazione packages nell'ambiente virtuale
+pip show pandas
+# Location dovrebbe essere: ...\Scheduling_Exam_Project\.venv\Lib\site-packages
+
+pip list
+# Dovresti vedere solo: pandas, matplotlib, seaborn, numpy + dipendenze
+
 ```
 
 ### 3. Esecuzione Esperimenti
@@ -182,6 +200,32 @@ Librerie Python standard utilizzate:
 ## 🚨 Troubleshooting
 
 ### Problemi Comuni
+
+**Ambiente virtuale non attivo (Windows PowerShell)**:
+Sintomo: Warning "You may have installed Python packages into your global environment"
+```bash
+# 1. Controlla se l'ambiente è attivo (dovresti vedere (.venv) nel prompt)
+# 2. Se non attivo, abilita esecuzione scripts PowerShell:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# 3. Riattiva ambiente
+.\.venv\Scripts\Activate.ps1
+
+# 4. Verifica che pip punti all'ambiente virtuale:
+where pip
+# Output atteso: ...\Scheduling_Exam_Project\.venv\Scripts\pip.exe
+
+# 5. Se pip ancora globale, usa path assoluto:
+.\.venv\Scripts\pip.exe install -r requirements.txt
+
+# 6. VERIFICA SEPARAZIONE AMBIENTI:
+# Con (.venv) attivo - dovresti vedere solo pacchetti progetto:
+pip list
+deactivate
+# Senza (.venv) - dovresti vedere pacchetti diversi:  
+pip list
+```
+**Nota**: Il warning VS Code a volte da falsi positivi su Windows anche con configurazione corretta.
 
 **Errore import moduli**:
 ```bash
