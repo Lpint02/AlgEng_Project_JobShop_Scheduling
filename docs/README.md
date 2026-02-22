@@ -47,7 +47,7 @@ Scheduling_Exam_Project/
 
 ```bash
 # Clona la repository 
-git clone https://github.com/Lpint02/Scheduling_Exam_Project.git
+git clone https://github.com/Lpint02/AlgEng_Project_JobShop_Scheduling.git
 
 # Entra nella directory del progetto
 cd Scheduling_Exam_Project
