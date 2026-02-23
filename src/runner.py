@@ -50,7 +50,6 @@ def run_experiment(config_path):
     
     # Header del CSV
     fieldnames = ["Experiment", "Dist", "N", "M", "Replica", "Seed", "Algo", "Params", "Time", "Obj", "Status", "Gap", "Nodes"]
-    file_exists = os.path.isfile(output_file)
     
     # 3. Scansione del "Magazzino Dati" (Dataset esistente)
     dataset_root = os.path.join("data", "dataset_exam")
@@ -78,9 +77,10 @@ def run_experiment(config_path):
     count = 0
     skipped = 0
     
-    with open(output_file, 'a', newline='') as csvfile:
+    # SOVRASCRITTURA COMPLETA DEL FILE (non append)
+    with open(output_file, 'w', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        if not file_exists: writer.writeheader()
+        writer.writeheader()  # Scrivi sempre l'header
 
         for filepath in all_files:
             filename = os.path.basename(filepath)

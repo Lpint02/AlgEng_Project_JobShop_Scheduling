@@ -194,6 +194,8 @@ class IteratedGreedy:
             # --- A. DESTRUCTION (Uso self.rng) ---
             # sample estrae senza ripetizione
             removed_jobs = self.rng.sample(range(n), self.d)
+            # DETERMINISMO: Ordiniamo i job rimossi per job_id per processarli sempre nello stesso ordine
+            removed_jobs = sorted(removed_jobs)
             
             partial_loads = [0] * m
             for j in range(n):
@@ -213,7 +215,8 @@ class IteratedGreedy:
                     new_load = partial_loads[mach] + p_time
                     cost = max(current_Cmax, new_load)
                     
-                    if cost < best_makespan_increase:
+                    # TIE-BREAKING ESPLICITO: A parità di costo, prende la macchina con indice minore
+                    if cost < best_makespan_increase or (cost == best_makespan_increase and mach < best_m):
                         best_makespan_increase = cost
                         best_m = mach
                 
