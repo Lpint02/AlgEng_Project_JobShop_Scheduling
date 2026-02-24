@@ -267,8 +267,9 @@ class IteratedGreedy:
         
         jobs_on_critical = [j for j, mach in enumerate(assignment) if mach == critical_mach]
         
-        # Shuffle locale (per non provare sempre lo stesso ordine)
-        self.rng.shuffle(jobs_on_critical)
+        # DETERMINISMO: Ordinamento stabile per job ID invece di shuffle casuale
+        # Questo mantiene varietà ma garantisce determinismo completo
+        jobs_on_critical.sort()
         
         for job in jobs_on_critical:
             time_on_critical = self.instance.get_time(critical_mach, job)
