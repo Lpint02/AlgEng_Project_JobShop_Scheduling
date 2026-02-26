@@ -15,7 +15,7 @@ Progetto di ricerca su algoritmi di scheduling multiprocessore per minimizzazion
 ## 🏗️ Struttura del Progetto
 
 ```
-AlgEng_Project_JobShop_Scheduling/
+AlgEng_Scheduling_Project/
 ├── data/                        # Dataset di input (permanenti)
 │   └── dataset_exam/           # Istanze organizzate per dimensione e tipo
 ├── experiments/                # Configurazioni JSON degli esperimenti
@@ -46,8 +46,8 @@ AlgEng_Project_JobShop_Scheduling/
 
 ```bash
 # Clona la repository
-git clone https://github.com/Lpint02/AlgEng_Project_JobShop_Scheduling.git
-cd AlgEng_Project_JobShop_Scheduling
+git clone https://github.com/Lpint02/AlgEng_Scheduling_Project.git
+cd AlgEng_Scheduling_Project
 
 # Crea ambiente virtuale Python  
 python3 -m venv .venv
@@ -71,8 +71,8 @@ python run_experiments.py --check-env
 ### PowerShell (Raccomandato)
 ```powershell
 # Clona la repository
-git clone https://github.com/Lpint02/AlgEng_Project_JobShop_Scheduling.git
-cd AlgEng_Project_JobShop_Scheduling
+git clone https://github.com/Lpint02/AlgEng_Scheduling_Project.git
+cd AlgEng_Scheduling_Project
 
 # Crea ambiente virtuale
 python -m venv .venv
