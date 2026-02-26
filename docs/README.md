@@ -55,6 +55,10 @@ cd Scheduling_Exam_Project
 # Crea ambiente virtuale Python
 python -m venv .venv
 
+# Su Linux: se errore "ensurepip is not available", installa prima:
+sudo apt install python3.13-venv
+# poi procedi con: python -m venv .venv
+
 # Attiva ambiente (Windows PowerShell)
 .\.venv\Scripts\Activate.ps1
 
@@ -101,14 +105,21 @@ pip --version
 ### 3. Esecuzione Esperimenti
 
 ```bash
+# Mostra tutte le opzioni disponibili
+python run_experiments.py --help
+
 # Esegui tutti gli esperimenti + genera grafici (può metterci 6 ore)
 python run_experiments.py --all
 
 # Solo esperimenti pilot (più veloce CONSIGLIATO)
 python run_experiments.py --pilot
 
-# Esperimento singolo
-python run_experiments.py --config pilot_a
+# Esperimenti singoli - puoi scegliere qualsiasi configurazione:
+python run_experiments.py --config pilot_a      # Analisi "The Wall" 
+python run_experiments.py --config pilot_b      # Tuning parametri
+python run_experiments.py --config pilot_c      # Analisi convergenza
+python run_experiments.py --config validation   # Solo validazione
+python run_experiments.py --config workhorse    # Esperimento principale
 
 # Solo grafici (da risultati esistenti) 
 python run_experiments.py --generate-plots
