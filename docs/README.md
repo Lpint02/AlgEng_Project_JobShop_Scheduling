@@ -15,7 +15,7 @@ Progetto di ricerca su algoritmi di scheduling multiprocessore per minimizzazion
 ## 🏗️ Struttura del Progetto
 
 ```
-Scheduling_Exam_Project/
+AlgEng_Project_JobShop_Scheduling/
 ├── data/                        # Dataset di input (permanenti)
 │   └── dataset_exam/           # Istanze organizzate per dimensione e tipo
 ├── experiments/                # Configurazioni JSON degli esperimenti
@@ -40,89 +40,111 @@ Scheduling_Exam_Project/
 
 ### Prerequisiti
 - **Git**: Installato e configurato
-- **Python**: Versione 3.8 o superiore
-- **Terminal**: PowerShell (Windows) o Bash (Linux/Mac)
+- **Python**: Versione 3.8+ (Linux: potrebbe essere necessario `python3-venv`)
 
-### 1. Clone Repository e Setup Ambiente
+## 🐧 Setup Linux/Mac
 
 ```bash
-# Clona la repository 
+# Clona la repository
 git clone https://github.com/Lpint02/AlgEng_Project_JobShop_Scheduling.git
+cd AlgEng_Project_JobShop_Scheduling
 
-# Entra nella directory del progetto
-cd Scheduling_Exam_Project
+# Crea ambiente virtuale Python  
+python3 -m venv .venv
 
-# Crea ambiente virtuale Python
-python -m venv .venv
+# Se errore "python: comando non trovato" o "ensurepip is not available":
+sudo apt update && sudo apt install -y python3 python3-venv  # Debian/Ubuntu
+# brew install python3  # macOS con Homebrew
 
-# Su Linux: se errore "ensurepip is not available", installa prima:
-sudo apt install python3.13-venv
-# poi procedi con: python -m venv .venv
-
-# Attiva ambiente (Windows PowerShell)
-.\.venv\Scripts\Activate.ps1
-
-# Attiva ambiente (Windows Command Prompt)
-.venv\Scripts\activate
-
-# Attiva ambiente (Linux/Mac) 
+# Attiva ambiente virtuale
 source .venv/bin/activate
-
-# VERIFICA ATTIVAZIONE: Il prompt dovrebbe mostrare (.venv) all'inizio
-# Se non vedi (.venv) nel prompt, prova:
-# PowerShell con policy di esecuzione:
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-.\.venv\Scripts\Activate.ps1
-
-# Verifica che pip punti all'ambiente virtuale
-Get-Command pip
-# OPPURE semplicemente:
-pip --version
-# Dovrebbe mostrare path con .venv: ...\Scheduling_Exam_Project\.venv\...
 
 # Installa dipendenze
 pip install -r requirements.txt
-```
 
-### 2. Verifica Configurazione
-
-```bash
-# Controlla che tutto sia configurato correttamente
+# Verifica installazione
 python run_experiments.py --check-env
-
-# VERIFICA AGGIUNTIVA: Installazione packages nell'ambiente virtuale
-pip show pandas
-# Location dovrebbe essere: ...\Scheduling_Exam_Project\.venv\Lib\site-packages
-
-pip list
-# Dovresti vedere solo: pandas, matplotlib, seaborn, numpy + dipendenze
-
-pip --version
-# Dovrebbe mostrare path con .venv
-
 ```
 
-### 3. Esecuzione Esperimenti
+## 🪟 Setup Windows
+
+### PowerShell (Raccomandato)
+```powershell
+# Clona la repository
+git clone https://github.com/Lpint02/AlgEng_Project_JobShop_Scheduling.git
+cd AlgEng_Project_JobShop_Scheduling
+
+# Crea ambiente virtuale
+python -m venv .venv
+
+# Attiva ambiente virtuale
+.\.venv\Scripts\Activate.ps1
+
+# Se errore di ExecutionPolicy:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+.\.venv\Scripts\Activate.ps1
+
+# Installa dipendenze  
+pip install -r requirements.txt
+
+# Verifica installazione
+python run_experiments.py --check-env
+```
+
+### Command Prompt (Alternativa)
+```cmd
+# Dopo il clone e creazione venv:
+.venv\Scripts\activate
+pip install -r requirements.txt
+python run_experiments.py --check-env
+```
+
+## 🧪 Esecuzione Esperimenti
 
 ```bash
 # Mostra tutte le opzioni disponibili
 python run_experiments.py --help
 
-# Esegui tutti gli esperimenti + genera grafici (può metterci 6 ore)
+# Esegui tutti gli esperimenti + genera grafici (può richiedere diverse ore)
 python run_experiments.py --all
 
-# Solo esperimenti pilot (più veloce CONSIGLIATO)
+# Solo esperimenti pilot (più veloce - CONSIGLIATO per test)
 python run_experiments.py --pilot
 
-# Esperimenti singoli - puoi scegliere qualsiasi configurazione:
+# Esperimenti singoli
 python run_experiments.py --config pilot_a      # Analisi "The Wall" 
 python run_experiments.py --config pilot_b      # Tuning parametri
 python run_experiments.py --config pilot_c      # Analisi convergenza
 python run_experiments.py --config validation   # Solo validazione
-python run_experiments.py --config workhorse    # Esperimento principale
+python run_experiments.py --config workhorse    # Esperimento principale (puo richiedere diverse ore)
 
-# Solo grafici (da risultati esistenti) 
+# Solo generazione grafici (da risultati esistenti) 
 python run_experiments.py --generate-plots
+```
+
+## ✅ Verifica Installazione (Opzionale)
+
+Ti consigliamo di verificare che l'ambiente sia configurato correttamente:
+
+### Controlli Base
+```bash
+# Il prompt dovrebbe mostrare (.venv) quando l'ambiente è attivo
+python run_experiments.py --check-env
+
+# Verifica che pip punti all'ambiente virtuale
+pip --version  # Dovrebbe mostrare path con .venv
+```
+
+### Controlli Dettagliati
+```bash
+# Verifica pacchetti nell'ambiente virtuale
+pip list  # Solo pandas, matplotlib, seaborn, numpy + dipendenze
+
+# Verifica installazione specifica
+pip show pandas  # Location dovrebbe contenere .venv
+
+# Su Windows PowerShell, verifica comando pip
+Get-Command pip  # Dovrebbe puntare a .venv\Scripts\pip.exe
 ```
 
 ## 📊 Output e Risultati
@@ -218,63 +240,55 @@ Librerie Python standard utilizzate:
 
 ## 🚨 Troubleshooting
 
-### Problemi Comuni
+### Problemi Comuni per Piattaforma
 
-**Ambiente virtuale non attivo (Windows PowerShell)**:
-Sintomo: Warning "You may have installed Python packages into your global environment"
+#### 🐧 Linux
 ```bash
-# 1. Controlla se l'ambiente è attivo (dovresti vedere (.venv) nel prompt)
-# 2. Se non attivo, abilita esecuzione scripts PowerShell:
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# "python: comando non trovato"  
+python3 -m venv .venv  # Usa python3 invece di python
+source .venv/bin/activate
 
-# 3. Riattiva ambiente
+# "ensurepip is not available"
+sudo apt update && sudo apt install python3 python3-venv  # Debian/Ubuntu
+sudo dnf install python3 python3-pip  # Fedora/RHEL
+```
+
+#### 🪟 Windows
+```powershell
+# Ambiente virtuale non attivabile in PowerShell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 .\.venv\Scripts\Activate.ps1
 
-# 4. Verifica che pip punti all'ambiente virtuale:
-Get-Command pip
-# OPPURE: pip --version
-# Output atteso: path contenente .venv\...
-
-# 5. Se pip ancora globale, usa path assoluto:
+# Se pip punta ancora all'ambiente globale
 .\.venv\Scripts\pip.exe install -r requirements.txt
-
-# 6. VERIFICA SEPARAZIONE AMBIENTI:
-# Con (.venv) attivo - dovresti vedere solo pacchetti progetto:
-pip list
-deactivate
-# Senza (.venv) - dovresti vedere pacchetti diversi:  
-pip list
 ```
-**Nota**: Il warning VS Code a volte da falsi positivi su Windows anche con configurazione corretta.
+
+### Problemi Generali
 
 **Errore import moduli**:
 ```bash
-# Assicurati di eseguire dalla directory principale
-cd Scheduling_Exam_Project  
-python run_experiments.py --all
-```
-
-**Directory mancanti**:
-```bash
-# Lo script crea directory automaticamente, ma puoi forzare:
+# Assicurati di eseguire dalla directory principale del progetto
+cd AlgEng_Project_JobShop_Scheduling  
 python run_experiments.py --check-env
 ```
 
-**Dipendenze mancanti**:
+**Dipendenze corrotte**:
 ```bash
-# Reinstall completo
 pip install -r requirements.txt --force-reinstall
 ```
 
 **Out of memory su istanze grandi**:
-- Modifica `time_limit` nei file JSON di configurazione
-- Su macchine lente, riduci dimensioni istanze nei parametri
+- Modifica `time_limit` nei file di configurazione JSON
+- Riduci dimensioni istanze nei parametri per macchine lente
 
-### Download Dataset
-Se la cartella `data/dataset_exam/` è vuota:
+**Directory risultati mancanti**:
 ```bash
-python src/generator.py  # Genera dataset da configurazione
+python run_experiments.py --check-env  # Crea directory automaticamente
 ```
+
+### Note Aggiuntive
+
+- **Dataset mancante**: Se `data/dataset_exam/` è vuoto, esegui `python src/generator.py`
 
 ## 📞 Supporto
 
